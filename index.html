@@ -39,15 +39,140 @@
         
         /* Dimensioni del logo nella navbar */
         .navbar-logo {
-            height: 45px;
+            height: 65px;
         }
         
-        /* Posizionamento fisso al centro del logo in modalità desktop */
-        @media (min-width: 992px) {
-            .navbar-brand.mx-auto {
+        /* MODALITÀ MOBILE: logo al centro, hamburger a sinistra */
+        @media (max-width: 991px) {
+            .navbar-brand {
+                position: static;
+                margin: 0 auto;
+                display: block;
+                text-align: center;
+            }
+            
+            .navbar-logo {
+                height: 60px;
+            }
+            
+            .navbar-toggler {
                 position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
+                left: 15px;
+                top: 10px;
+            }
+            
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Menu a tendina sotto il logo */
+            .navbar-collapse {
+                width: 100%;
+                margin-top: 15px;
+                text-align: left;
+                margin-left: 0;
+                padding-left: 0;
+            }
+            
+            /* Allinea le voci del menu esattamente a sinistra, fisse */
+            .navbar-nav {
+                margin: 0;
+                width: 100%;
+                padding-left: 0;
+            }
+            
+            /* Scritte del menu con padding fisso a sinistra allineato all'hamburger */
+            .navbar-nav .nav-link {
+                font-size: 1.2rem;
+                padding: 0.5rem 0;
+                padding-left: 15px;
+                font-family: Georgia, 'Times New Roman', serif;
+            }
+            
+            .navbar-nav .nav-item {
+                width: 100%;
+            }
+        }
+        
+        /* SCHERMI MOLTO PICCOLI: hamburger sotto il logo */
+        @media (max-width: 400px) {
+            .navbar-toggler {
+                position: static;
+                margin: 10px auto 0;
+                display: block;
+            }
+            
+            .navbar-brand {
+                margin-bottom: 10px;
+            }
+            
+            /* Riduco il logo su schermi molto piccoli */
+            .navbar-logo {
+                height: 45px;
+            }
+            
+            /* Centro il menu collapse */
+            .navbar-collapse {
+                text-align: center;
+            }
+            
+            /* Centro le scritte del menu e le rendo fisse */
+            .navbar-nav {
+                padding-left: 0;
+                display: inline-block;
+                text-align: center;
+            }
+            
+            .navbar-nav .nav-link {
+                padding-left: 0;
+                text-align: center;
+            }
+            
+            .navbar-nav .nav-item {
+                text-align: center;
+            }
+        }
+        
+        /* SCHERMI ECCESSIVAMENTE PICCOLI: riduco ulteriormente */
+        @media (max-width: 320px) {
+            /* Logo ancora più piccolo */
+            .navbar-logo {
+                height: 35px;
+            }
+            
+            /* Hamburger menu più piccolo */
+            .navbar-toggler {
+                padding: 0.15rem 0.5rem;
+                font-size: 1rem;
+            }
+            
+            /* Scritte del menu più piccole */
+            .navbar-nav .nav-link {
+                font-size: 1rem;
+                padding: 0.3rem 0;
+            }
+        }
+        
+        /* MODALITÀ DESKTOP: logo a sinistra */
+        @media (min-width: 992px) {
+            .navbar-brand {
+                position: static;
+                transform: none;
+                margin-left: -15px;
+            }
+            
+            /* Ingrandisco le scritte del menu in modalità desktop con spaziatura */
+            .navbar-nav .nav-link {
+                font-size: 1.6rem;
+                font-family: Georgia, 'Times New Roman', serif;
+                font-weight: 500;
+                margin-left: 20px;
+                margin-right: 20px;
             }
         }
     </style>
@@ -59,11 +184,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <!-- Container per mantenere il contenuto centrato -->
         <div class="container position-relative">
-            <!-- Brand/Logo della navbar a sinistra -->
-            <a class="navbar-brand" href="#">Il Mio Sito</a>
             
-            <!-- Logo Talatta al centro - visibile sempre -->
-            <a class="navbar-brand mx-auto" href="#">
+            <!-- Logo Talatta a sinistra su desktop, al centro su mobile -->
+            <a class="navbar-brand" href="#">
                 <img src="assets/TALATTA_LOGO_white_X.svg" alt="Logo Talatta" class="navbar-logo">
             </a>
             
