@@ -31,17 +31,41 @@
         .custom-margin {
             margin-bottom: 30px;
         }
+        
+        /* Colore personalizzato per la navbar */
+        .navbar-custom {
+            background-color: #003D50;
+        }
+        
+        /* Dimensioni del logo nella navbar */
+        .navbar-logo {
+            height: 45px;
+        }
+        
+        /* Posizionamento fisso al centro del logo in modalità desktop */
+        @media (min-width: 992px) {
+            .navbar-brand.mx-auto {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
     </style>
 </head>
 <body>
     
     <!-- NAVBAR - Barra di navigazione responsive di Bootstrap -->
-    <!-- bg-dark: sfondo scuro | navbar-dark: testo chiaro -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- navbar-custom: colore personalizzato #003D50 | navbar-dark: testo chiaro -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <!-- Container per mantenere il contenuto centrato -->
-        <div class="container">
-            <!-- Brand/Logo della navbar -->
+        <div class="container position-relative">
+            <!-- Brand/Logo della navbar a sinistra -->
             <a class="navbar-brand" href="#">Il Mio Sito</a>
+            
+            <!-- Logo Talatta al centro - visibile sempre -->
+            <a class="navbar-brand mx-auto" href="#">
+                <img src="assets/TALATTA_LOGO_white_X.svg" alt="Logo Talatta" class="navbar-logo">
+            </a>
             
             <!-- Pulsante hamburger per dispositivi mobili -->
             <!-- Si attiva su schermi piccoli per mostrare/nascondere il menu -->
