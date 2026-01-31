@@ -40,9 +40,11 @@
         /* Dimensioni del logo nella navbar */
         .navbar-logo {
             height: 65px;
+            max-width: 100%;
+            width: auto;
         }
         
-        /* MODALITÀ MOBILE: logo al centro, hamburger a sinistra */
+        /* MODALITÃ€ MOBILE: logo al centro, hamburger a sinistra */
         @media (max-width: 991px) {
             /* Rimuovo TUTTI i margini e padding del container Bootstrap */
             .navbar > .container {
@@ -58,11 +60,14 @@
                 margin: 0 auto;
                 display: block;
                 text-align: center;
+                padding: 0 10px;
             }
             
-            /* MODIFICA: Logo ingrandito da 60px a 70px su schermi mobili */
+            /* Logo grande come prima */
             .navbar-logo {
                 height: 70px;
+                max-width: 100%;
+                width: auto;
             }
             
             /* MODIFICA: Hamburger con position absolute, all'estrema sinistra della pagina */
@@ -75,7 +80,7 @@
                 margin-left: 0;
             }
             
-            /* Rimuovo il bordo anche quando l'hamburger è in focus o attivo */
+            /* Rimuovo il bordo anche quando l'hamburger Ã¨ in focus o attivo */
             .navbar-toggler:focus,
             .navbar-toggler:active,
             .navbar-toggler:hover {
@@ -132,21 +137,25 @@
             }
         }
         
-        /* SCHERMI MOLTO PICCOLI: hamburger sotto il logo */
+        /* SCHERMI MOLTO PICCOLI: hamburger sotto il logo - TUTTO CENTRATO */
         @media (max-width: 400px) {
+            /* MODIFICA: Riduco lo spazio tra hamburger e logo */
             .navbar-toggler {
                 position: static;
-                margin: 10px auto 0;
+                margin: 5px auto 0;
                 display: block;
             }
             
             .navbar-brand {
-                margin-bottom: 10px;
+                margin-bottom: 5px;
+                padding: 0 10px;
             }
             
-            /* MODIFICA: Logo ingrandito da 45px a 55px su schermi molto piccoli */
+            /* Logo grande - rimane dentro i confini grazie a max-width */
             .navbar-logo {
-                height: 55px;
+                height: 65px;
+                max-width: 100%;
+                width: auto;
             }
             
             /* Centro il menu collapse */
@@ -154,7 +163,7 @@
                 text-align: center;
             }
             
-            /* Centro le scritte del menu e le rendo fisse */
+            /* Centro le scritte del menu */
             .navbar-nav {
                 padding-left: 0;
                 display: inline-block;
@@ -171,27 +180,81 @@
             }
         }
         
-        /* SCHERMI ECCESSIVAMENTE PICCOLI: riduco ulteriormente */
+        /* SCHERMI ECCESSIVAMENTE PICCOLI: logo rimane visibile */
         @media (max-width: 320px) {
-            /* MODIFICA: Logo ingrandito da 35px a 45px su schermi eccessivamente piccoli */
+            .navbar-brand {
+                padding: 0 5px;
+            }
+            
+            /* Logo 65px anche su schermi 161-320px */
             .navbar-logo {
-                height: 45px;
+                height: 65px;
+                max-width: 100%;
+                width: auto;
             }
             
-            /* Hamburger menu più piccolo */
+        }
+        
+        /* SCHERMI SOTTO 160px: TUTTO ALLINEATO A SINISTRA per massimizzare visibilitÃ  */
+        @media (max-width: 160px) {
+            /* Body senza padding laterali */
+            body {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            
+            /* Container principale a sinistra */
+            .container {
+                padding-left: 3px;
+                padding-right: 3px;
+                margin-left: 0;
+                margin-right: 0;
+                max-width: 100%;
+            }
+            
+            /* Logo e hamburger a sinistra */
+            .navbar-brand {
+                text-align: left;
+                margin-left: 0;
+                margin-right: auto;
+                padding: 0 3px;
+            }
+            
             .navbar-toggler {
-                padding: 0.15rem 0.5rem;
-                font-size: 1rem;
+                margin: 3px 0 0 3px;
+            }
+
+            
+            /* Menu collapse a sinistra */
+            .navbar-collapse {
+                text-align: left;
             }
             
-            /* Scritte del menu più piccole */
+            /* Scritte menu a sinistra */
+            .navbar-nav {
+                padding-left: 3px;
+                display: block;
+                text-align: left;
+            }
+            
             .navbar-nav .nav-link {
-                font-size: 1rem;
-                padding: 0.3rem 0;
+                padding-left: 3px;
+                text-align: left;
+                padding-top: 0.2rem;
+                padding-bottom: 0.2rem;
+            }
+            
+            .navbar-nav .nav-item {
+                text-align: left;
+            }
+            
+            /* Logo molto piccolo per schermi ultra-estremi */
+            .navbar-logo {
+                height: 30px;
             }
         }
         
-        /* MODALITÀ DESKTOP: logo a sinistra */
+        /* MODALITÃ€ DESKTOP: logo a sinistra */
         @media (min-width: 992px) {
             .navbar-brand {
                 position: static;
@@ -199,7 +262,7 @@
                 margin-left: -15px;
             }
             
-            /* Ingrandisco le scritte del menu in modalità desktop con spaziatura */
+            /* Ingrandisco le scritte del menu in modalitÃ  desktop con spaziatura */
             .navbar-nav .nav-link {
                 font-size: 1.6rem;
                 font-family: Georgia, 'Times New Roman', serif;
@@ -256,10 +319,10 @@
             <div class="container-fluid py-5">
                 <!-- Display-5: titolo grande | fw-bold: grassetto -->
                 <h1 class="display-5 fw-bold">Benvenuto nel mio sito!</h1>
-                <!-- lead: paragrafo introduttivo più grande -->
-                <p class="lead">Questo è un esempio di sito creato con Bootstrap offline. Tutti i componenti funzionano perfettamente senza connessione internet.</p>
+                <!-- lead: paragrafo introduttivo piÃ¹ grande -->
+                <p class="lead">Questo Ã¨ un esempio di sito creato con Bootstrap offline. Tutti i componenti funzionano perfettamente senza connessione internet.</p>
                 <!-- btn: pulsante base | btn-primary: colore primario (blu) | btn-lg: grande -->
-                <button class="btn btn-primary btn-lg" type="button">Scopri di più</button>
+                <button class="btn btn-primary btn-lg" type="button">Scopri di piÃ¹</button>
             </div>
         </div>
 
@@ -285,7 +348,7 @@
                     </div>
                     <!-- Footer della card -->
                     <div class="card-footer">
-                        <a href="#" class="btn btn-outline-primary">Leggi di più</a>
+                        <a href="#" class="btn btn-outline-primary">Leggi di piÃ¹</a>
                     </div>
                 </div>
             </div>
@@ -298,10 +361,10 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Ottimizzazione SEO</h5>
-                        <p class="card-text">Miglioriamo la visibilità del tuo sito sui motori di ricerca per attirare più clienti.</p>
+                        <p class="card-text">Miglioriamo la visibilitÃ  del tuo sito sui motori di ricerca per attirare piÃ¹ clienti.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-outline-success">Leggi di più</a>
+                        <a href="#" class="btn btn-outline-success">Leggi di piÃ¹</a>
                     </div>
                 </div>
             </div>
@@ -317,7 +380,7 @@
                         <p class="card-text">Forniamo supporto continuo e aggiornamenti per mantenere il tuo sito sempre al top.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-outline-info">Leggi di più</a>
+                        <a href="#" class="btn btn-outline-info">Leggi di piÃ¹</a>
                     </div>
                 </div>
             </div>
@@ -356,7 +419,7 @@
                     
                     <div class="mb-3">
                         <label for="messaggio" class="form-label">Messaggio</label>
-                        <!-- textarea per messaggi più lunghi -->
+                        <!-- textarea per messaggi piÃ¹ lunghi -->
                         <textarea class="form-control" id="messaggio" rows="4" placeholder="Scrivi il tuo messaggio qui..."></textarea>
                     </div>
                     
@@ -374,7 +437,7 @@
                 <!-- Alert di successo -->
                 <!-- alert: contenitore notifica | alert-success: verde per successo -->
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Successo!</strong> La tua richiesta è stata inviata correttamente.
+                    <strong>Successo!</strong> La tua richiesta Ã¨ stata inviata correttamente.
                     <!-- Pulsante per chiudere l'alert -->
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
@@ -412,7 +475,7 @@
                         <!-- show: mostra questo elemento di default -->
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Dipende dalla complessità del progetto. Un sito vetrina semplice può essere completato in 1-2 settimane, mentre progetti più complessi possono richiedere 4-8 settimane.
+                                Dipende dalla complessitÃ  del progetto. Un sito vetrina semplice puÃ² essere completato in 1-2 settimane, mentre progetti piÃ¹ complessi possono richiedere 4-8 settimane.
                             </div>
                         </div>
                     </div>
@@ -426,7 +489,7 @@
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Sì, possiamo fornire soluzioni di hosting oppure aiutarti a configurare il tuo hosting preferito.
+                                SÃ¬, possiamo fornire soluzioni di hosting oppure aiutarti a configurare il tuo hosting preferito.
                             </div>
                         </div>
                     </div>
@@ -435,12 +498,12 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                Il sito sarà responsive?
+                                Il sito sarÃ  responsive?
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Assolutamente sì! Tutti i nostri siti sono progettati per funzionare perfettamente su smartphone, tablet e computer.
+                                Assolutamente sÃ¬! Tutti i nostri siti sono progettati per funzionare perfettamente su smartphone, tablet e computer.
                             </div>
                         </div>
                     </div>
@@ -466,9 +529,9 @@
     </footer>
 
     <!-- COLLEGAMENTO AL JAVASCRIPT DI BOOTSTRAP (versione offline) -->
-    <!-- Questo file contiene tutte le funzionalità interattive di Bootstrap -->
+    <!-- Questo file contiene tutte le funzionalitÃ  interattive di Bootstrap -->
     <!-- IMPORTANTE: deve essere inserito prima della chiusura del tag body -->
-    <!-- bootstrap.bundle.min.js include già Popper.js (necessario per tooltip, dropdown, ecc.) -->
+    <!-- bootstrap.bundle.min.js include giÃ  Popper.js (necessario per tooltip, dropdown, ecc.) -->
     <script src="js/bootstrap.bundle.min.js"></script>
     
     <!-- JAVASCRIPT PERSONALIZZATO (opzionale) -->
@@ -478,10 +541,10 @@
         // Esempio: mostrare un messaggio quando si invia il form
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault(); // Previene l'invio reale del form
-            alert('Form inviato! (Questa è solo una demo)');
+            alert('Form inviato! (Questa Ã¨ solo una demo)');
         });
         
-        // Log in console per confermare che Bootstrap è caricato
+        // Log in console per confermare che Bootstrap Ã¨ caricato
         console.log('Bootstrap caricato correttamente!');
     </script>
 
