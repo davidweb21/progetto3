@@ -44,6 +44,15 @@
         
         /* MODALITÀ MOBILE: logo al centro, hamburger a sinistra */
         @media (max-width: 991px) {
+            /* Rimuovo TUTTI i margini e padding del container Bootstrap */
+            .navbar > .container {
+                padding-left: 0;
+                padding-right: 0;
+                margin-left: 0;
+                margin-right: 0;
+                max-width: 100%;
+            }
+            
             .navbar-brand {
                 position: static;
                 margin: 0 auto;
@@ -51,14 +60,33 @@
                 text-align: center;
             }
             
+            /* MODIFICA: Logo ingrandito da 60px a 70px su schermi mobili */
             .navbar-logo {
-                height: 60px;
+                height: 70px;
             }
             
+            /* MODIFICA: Hamburger con position absolute, all'estrema sinistra della pagina */
             .navbar-toggler {
                 position: absolute;
-                left: 15px;
-                top: 10px;
+                left: 0;
+                top: 15px;
+                z-index: 1050;
+                border: none;
+                margin-left: 0;
+            }
+            
+            /* Rimuovo il bordo anche quando l'hamburger è in focus o attivo */
+            .navbar-toggler:focus,
+            .navbar-toggler:active,
+            .navbar-toggler:hover {
+                border: none;
+                outline: none;
+                box-shadow: none;
+            }
+            
+            /* Rendo le linee dell'hamburger bianche come il logo, con spessore maggiore */
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FFFFFF' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
             
             .container {
@@ -66,11 +94,12 @@
                 flex-direction: column;
                 align-items: center;
                 position: relative;
-                padding-left: 15px;
-                padding-right: 15px;
+                padding-left: 0;
+                padding-right: 0;
+                min-width: 320px;
             }
             
-            /* Menu a tendina sotto il logo */
+            /* Menu a tendina sotto il logo - allineato completamente a sinistra */
             .navbar-collapse {
                 width: 100%;
                 margin-top: 15px;
@@ -79,23 +108,27 @@
                 padding-left: 0;
             }
             
-            /* Allinea le voci del menu esattamente a sinistra, fisse */
+            /* Allinea le voci del menu esattamente a sinistra, senza margini */
             .navbar-nav {
                 margin: 0;
                 width: 100%;
                 padding-left: 0;
+                margin-left: 0;
             }
             
-            /* Scritte del menu con padding fisso a sinistra allineato all'hamburger */
+            /* Scritte del menu allineate al bordo sinistro con leggero rientro */
             .navbar-nav .nav-link {
                 font-size: 1.2rem;
                 padding: 0.5rem 0;
-                padding-left: 15px;
+                padding-left: 10px;
+                margin-left: 0;
                 font-family: Georgia, 'Times New Roman', serif;
             }
             
             .navbar-nav .nav-item {
                 width: 100%;
+                margin-left: 0;
+                padding-left: 0;
             }
         }
         
@@ -111,9 +144,9 @@
                 margin-bottom: 10px;
             }
             
-            /* Riduco il logo su schermi molto piccoli */
+            /* MODIFICA: Logo ingrandito da 45px a 55px su schermi molto piccoli */
             .navbar-logo {
-                height: 45px;
+                height: 55px;
             }
             
             /* Centro il menu collapse */
@@ -140,9 +173,9 @@
         
         /* SCHERMI ECCESSIVAMENTE PICCOLI: riduco ulteriormente */
         @media (max-width: 320px) {
-            /* Logo ancora più piccolo */
+            /* MODIFICA: Logo ingrandito da 35px a 45px su schermi eccessivamente piccoli */
             .navbar-logo {
-                height: 35px;
+                height: 45px;
             }
             
             /* Hamburger menu più piccolo */
